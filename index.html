@@ -17,7 +17,6 @@
       --card-bg: #f7f7f8;
       --link-color: #1d4ed8;
       --link-hover: #1e3a8a;
-      --accent-badge: #eef2ff;
     }
     html.dark-mode {
       --bg-color: #121316;
@@ -27,7 +26,6 @@
       --card-bg: #18191e;
       --link-color: #60a5fa;
       --link-hover: #93c5fd;
-      --accent-badge: #1e293b;
     }
     body {
       background-color: var(--bg-color);
@@ -141,22 +139,22 @@
         </div>
       </div>
 
-      <!-- "Why you might know me." (Exact horace.io section header & bullet style) -->
+      <!-- "Selected Highlights" section -->
       <div class="space-y-3 pt-2">
-        <h2 class="text-xl font-bold tracking-tight">Why you might know me.</h2>
+        <h2 class="text-xl font-bold tracking-tight">Selected Highlights</h2>
 
         <ul class="list-disc pl-5 space-y-3 text-[15.5px]">
           <li>
-            My open-source performance work on <a href="https://github.com/sagemath/sage/" target="_blank" rel="noopener noreferrer" class="h-link">SageMath</a>, where I profiled and optimized a hot-path function to reduce runtime by <strong>up to 30%</strong> in benchmark scenarios (<a href="https://github.com/sagemath/sage/pull/41778" target="_blank" rel="noopener noreferrer" class="h-link">Merged PR #41778</a>).
+            <strong>SageMath:</strong> Profiled and optimized a hot-path function, reducing runtime by <strong>up to 30%</strong> in benchmark scenarios (<a href="https://github.com/sagemath/sage/pull/41778" target="_blank" rel="noopener noreferrer" class="h-link">Merged PR #41778</a>).
           </li>
           <li>
-            My contributions to <a href="https://github.com/TheSuperHackers/GeneralsGameCode" target="_blank" rel="noopener noreferrer" class="h-link">GeneralsGameCode</a> (the EA <em>Command &amp; Conquer: Generals – Zero Hour</em> community project), where I identified, analyzed, and reported bugs in a large legacy C++ codebase—working on <a href="https://github.com/TheSuperHackers/GeneralsGameCode/issues?q=involves%3A%40Yossef-moftah-dev" target="_blank" rel="noopener noreferrer" class="h-link">7 issues with 4 successfully fixed</a>.
+            <strong>GeneralsGameCode:</strong> Investigated and analyzed bugs in EA's legacy C++ codebase for <em>Command &amp; Conquer: Generals – Zero Hour</em>—contributing to <a href="https://github.com/TheSuperHackers/GeneralsGameCode/issues?q=involves%3A%40Yossef-moftah-dev" target="_blank" rel="noopener noreferrer" class="h-link">7 issues with 4 resolved</a>.
           </li>
           <li>
-            My work on applied NLP and LLM pipelines, including <a href="https://github.com/Yossef-moftah-dev/arabic-sentiment-arabert" target="_blank" rel="noopener noreferrer" class="h-link">arabic-sentiment-arabert</a> (Arabic sentiment classification built with AraBERT, PyTorch, and Hugging Face), <a href="https://github.com/Yossef-moftah-dev/Code-Explainer" target="_blank" rel="noopener noreferrer" class="h-link">Code-Explainer</a> (converting complex C++ into beginner walk-throughs with StarCoder2 and Gemini 1.5 Flash), and <a href="https://github.com/Yossef-moftah-dev/Pre-Encoding-Automation" target="_blank" rel="noopener noreferrer" class="h-link">Pre-Encoding-Automation</a> (cutting manual lecture prep time by 15–25%).
+            <strong>Applied ML &amp; NLP:</strong> Built open-source pipelines including <a href="https://github.com/Yossef-moftah-dev/arabic-sentiment-arabert" target="_blank" rel="noopener noreferrer" class="h-link">arabic-sentiment-arabert</a> (morphological AraBERT classification), <a href="https://github.com/Yossef-moftah-dev/Code-Explainer" target="_blank" rel="noopener noreferrer" class="h-link">Code-Explainer</a> (C++ explanations using StarCoder2 and Gemini Flash), and <a href="https://github.com/Yossef-moftah-dev/Pre-Encoding-Automation" target="_blank" rel="noopener noreferrer" class="h-link">Pre-Encoding-Automation</a> (reducing manual prep by 15–25%).
           </li>
           <li>
-            I ranked <strong>1st at my university</strong> in the <strong>2024 Egyptian Collegiate Programming Contest (ECPC)</strong> season.
+            <strong>Competitive Programming:</strong> Ranked <strong>1st at my university</strong> in the <strong>2024 Egyptian Collegiate Programming Contest (ECPC)</strong> season.
           </li>
         </ul>
       </div>
@@ -346,18 +344,6 @@
         });
       });
 
-      const brandBtn = document.getElementById('brand-home-btn');
-      if (brandBtn) {
-        brandBtn.addEventListener('click', function () {
-          showPage('home');
-        });
-      }
-
-      document.querySelectorAll('.inline-nav-btn').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          showPage(btn.getAttribute('data-goto') || 'projects');
-        });
-      });
 
       // Theme toggle (Light paper default like horace.io, with clean dark reading toggle)
       let darkMode = false;
@@ -450,7 +436,7 @@
         }, 2200);
       }
 
-      function copyStr(str, label) {
+      function fallbackCopy(str, label) {
         const ta = document.createElement('textarea');
         ta.value = str;
         ta.style.position = 'fixed';
@@ -464,6 +450,18 @@
           notify(label + ': ' + str);
         }
         document.body.removeChild(ta);
+      }
+
+      function copyStr(str, label) {
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(str).then(function () {
+            notify('Copied ' + label);
+          }).catch(function () {
+            fallbackCopy(str, label);
+          });
+        } else {
+          fallbackCopy(str, label);
+        }
       }
 
       const copyCvEntryBtn = document.getElementById('copy-cv-entry-btn');
