@@ -57,8 +57,6 @@
       padding-bottom: 2px;
       border-bottom: 2px solid transparent;
       transition: color 0.12s ease, border-color 0.12s ease;
-      touch-action: manipulation;
-      cursor: pointer;
     }
     .nav-link:hover {
       color: var(--text-color);
@@ -82,25 +80,25 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Top Header Navigation -->
+  <!-- Top Header Navigation (Exact horace.io proportions and layout) -->
   <header class="border-b divider">
-    <div class="max-w-[740px] mx-auto px-4 sm:px-5 py-3.5 sm:py-4 flex flex-wrap items-center justify-between gap-3 sm:gap-4">
-      <button type="button" id="brand-home-btn" class="text-lg font-semibold tracking-tight hover:opacity-80 text-left cursor-pointer">
+    <div class="max-w-[740px] mx-auto px-5 py-4 flex flex-wrap items-center justify-between gap-4">
+      <button type="button" id="brand-home-btn" class="text-lg font-semibold tracking-tight hover:opacity-80 text-left">
         Yossef Moftah
       </button>
 
-      <nav class="flex items-center gap-4 sm:gap-6">
-        <button type="button" data-page="home" class="nav-link active py-1">Home</button>
-        <button type="button" data-page="projects" class="nav-link py-1">Projects</button>
-        <button type="button" id="theme-btn" aria-label="Toggle reading theme" title="Toggle Light / Dark Reading Mode" class="text-xs mono px-2.5 py-1 rounded subtle-box hover:opacity-80 cursor-pointer">
+      <nav class="flex flex-wrap items-center gap-5 sm:gap-6">
+        <button type="button" data-page="home" class="nav-link active">Home</button>
+        <button type="button" data-page="projects" class="nav-link">Projects</button>
+        <button type="button" id="theme-btn" aria-label="Toggle reading theme" title="Toggle Light / Dark Reading Mode" class="text-xs mono px-2 py-1 rounded subtle-box hover:opacity-80">
           [Dark]
         </button>
       </nav>
     </div>
   </header>
 
-  <!-- Main Single-Column Container -->
-  <main class="flex-1 max-w-[740px] w-full mx-auto px-4 sm:px-5 py-8 sm:py-12 pb-16">
+  <!-- Main Single-Column Container (740px max-width, horace.io reading width) -->
+  <main class="flex-1 max-w-[740px] w-full mx-auto px-5 py-10 sm:py-12">
 
     <!-- ==================== PAGE 1: HOME (horace.io index) ==================== -->
     <section id="page-home" class="space-y-8">
@@ -117,14 +115,14 @@
             I am currently pursuing my B.Sc. in Computer Science at <strong>Minia National University</strong> (2023–Present, GPA: Very Good) in Egypt. I go by the handle <span class="mono text-sm">Yossef-moftah-dev</span> on GitHub and <span class="mono text-sm">complex_00</span> on Chess.com.
           </p>
 
-          <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[15px] pt-1">
+          <p class="text-[15px] pt-1">
             <span class="font-medium">Links:</span>
-            <a href="mailto:yossefmoftah000@gmail.com" class="h-link py-0.5">[Email]</a>
-            <button type="button" id="open-cv-modal-btn" class="h-link py-0.5 cursor-pointer">[CV / Resume]</button>
-            <a href="https://github.com/Yossef-moftah-dev" target="_blank" rel="noopener noreferrer" class="h-link py-0.5">[GitHub]</a>
-            <a href="https://www.linkedin.com/in/yossef-moftah/" target="_blank" rel="noopener noreferrer" class="h-link py-0.5">[LinkedIn]</a>
-            <a href="https://www.chess.com/member/complex_00" target="_blank" rel="noopener noreferrer" class="h-link py-0.5">[Chess.com]</a>
-          </div>
+            <a href="mailto:yossefmoftah000@gmail.com" class="h-link ml-1">[Email]</a>
+            <button type="button" id="open-cv-modal-btn" class="h-link ml-1.5">[CV / Resume]</button>
+            <a href="https://github.com/Yossef-moftah-dev" target="_blank" rel="noopener noreferrer" class="h-link ml-1.5">[GitHub]</a>
+            <a href="https://www.linkedin.com/in/yossef-moftah/" target="_blank" rel="noopener noreferrer" class="h-link ml-1.5">[LinkedIn]</a>
+            <a href="https://www.chess.com/member/complex_00" target="_blank" rel="noopener noreferrer" class="h-link ml-1.5">[Chess.com]</a>
+          </p>
         </div>
 
         <!-- Right-side compact profile card (horace.io right-hand image slot) -->
@@ -190,13 +188,10 @@
       </div>
     </section>
 
-    <!-- ==================== PAGE 2: PROJECTS (Exact horace.io/research.html layout: Title, Stack, [Links], TL;DR, Open Question) ==================== -->
+    <!-- ==================== PAGE 2: PROJECTS ==================== -->
     <section id="page-projects" class="hidden space-y-10">
       <div class="border-b divider pb-4">
         <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">Projects &amp; Engineering</h1>
-        <p class="text-sm muted-text mt-1">
-          Systems programming, open-source optimization, and applied machine learning. Format modeled after <a href="https://horace.io/research.html" target="_blank" rel="noopener noreferrer" class="h-link">horace.io/research.html</a>.
-        </p>
       </div>
 
       <!-- Entry 1: Arabic Sentiment AraBERT -->
@@ -205,28 +200,28 @@
           Arabic Sentiment Analysis with AraBERT
         </h2>
         <div class="text-sm muted-text">
-          <strong>Yossef Moftah</strong> &bull; <em>PyTorch, Hugging Face Transformers, AraBERT, Python</em>
+          <em>PyTorch, Hugging Face Transformers, AraBERT, Python</em>
         </div>
         <div class="text-sm mono space-x-2">
           <a href="https://github.com/Yossef-moftah-dev/arabic-sentiment-arabert" target="_blank" rel="noopener noreferrer" class="h-link">[GitHub Repository]</a>
           <button type="button" id="toggle-arabert-sandbox-btn" class="h-link">[Interactive Tokenizer Preview]</button>
         </div>
         <p class="text-[15px]">
-          <strong>TL;DR:</strong> Standard language model tokenizers struggle with Arabic because prefixes, conjunctions, and clitics attach directly to root words, fragmenting semantic representations. This project implements an end-to-end Arabic sentiment classification pipeline built around <strong>AraBERT</strong>, combining Arabic morphological preprocessing with transformer fine-tuning in PyTorch and Hugging Face.
+          Standard language model tokenizers struggle with Arabic because prefixes, conjunctions, and clitics attach directly to root words, fragmenting semantic representations. This project implements an end-to-end Arabic sentiment classification pipeline built around <strong>AraBERT</strong>, combining Arabic morphological preprocessing with transformer fine-tuning in PyTorch and Hugging Face.
         </p>
 
         <!-- Collapsible lightweight interactive preview -->
         <div id="arabert-sandbox-box" class="hidden subtle-box rounded-lg p-4 space-y-3 mt-2">
-          <div class="flex flex-wrap items-center justify-between gap-2 text-xs mono">
+          <div class="flex items-center justify-between text-xs mono">
             <span class="font-semibold">ARABERT PREPROCESSING &amp; POLARITY TESTER</span>
             <div class="space-x-2">
-              <button type="button" data-ar-sample="pos" class="ar-sample-btn h-link py-0.5 cursor-pointer">[Sample: Positive]</button>
-              <button type="button" data-ar-sample="neg" class="ar-sample-btn h-link py-0.5 cursor-pointer">[Sample: Negative]</button>
+              <button type="button" data-ar-sample="pos" class="ar-sample-btn h-link">[Sample: Positive]</button>
+              <button type="button" data-ar-sample="neg" class="ar-sample-btn h-link">[Sample: Negative]</button>
             </div>
           </div>
-          <input id="ar-input-field" type="text" dir="rtl" value="الخدمة ممتازة جداً والتطبيق سريع وسهل الاستخدام!" class="w-full px-3 py-2 rounded border divider bg-transparent arabic text-base sm:text-sm focus:outline-none" />
+          <input id="ar-input-field" type="text" dir="rtl" value="الخدمة ممتازة جداً والتطبيق سريع وسهل الاستخدام!" class="w-full px-3 py-2 rounded border divider bg-transparent arabic text-sm focus:outline-none" />
           <div class="flex flex-wrap items-center justify-between gap-2 text-xs mono">
-            <div id="ar-tokens-out" class="muted-text break-all">[CLS] ال+ خدمة ممتاز +ة جد +ا و+ ال+ تطبيق سريع [SEP]</div>
+            <div id="ar-tokens-out" class="muted-text">[CLS] ال+ خدمة ممتاز +ة جد +ا و+ ال+ تطبيق سريع [SEP]</div>
             <div id="ar-verdict-out" class="font-semibold text-emerald-600">Prediction: POSITIVE (94%)</div>
           </div>
         </div>
@@ -238,14 +233,14 @@
           Hot-Path Runtime Optimization in SageMath
         </h2>
         <div class="text-sm muted-text">
-          <strong>Yossef Moftah</strong> &bull; <em>Open-Source Contribution (Python / Cython / Profiling)</em>
+          <em>Open-Source Contribution (Python / Cython / Profiling)</em>
         </div>
         <div class="text-sm mono space-x-2">
           <a href="https://github.com/sagemath/sage/pull/41778" target="_blank" rel="noopener noreferrer" class="h-link">[Merged PR #41778]</a>
           <a href="https://github.com/sagemath/sage/" target="_blank" rel="noopener noreferrer" class="h-link">[SageMath Repository]</a>
         </div>
         <p class="text-[15px]">
-          <strong>TL;DR:</strong> Profiled a heavily called hot-path function in the SageMath mathematics software system, isolated redundant overhead along the critical execution path, and restructured the implementation. <strong>Highlight result:</strong> Reduced execution runtime by <strong>up to 30%</strong> in benchmark scenarios; reviewed and merged upstream in PR #41778.
+          Profiled a heavily called hot-path function in the SageMath mathematics software system, isolated redundant overhead along the critical execution path, and restructured the implementation. <strong>Highlight result:</strong> Reduced execution runtime by <strong>up to 30%</strong> in benchmark scenarios; reviewed and merged upstream in PR #41778.
         </p>
       </article>
 
@@ -255,13 +250,13 @@
           Code Explainer: Teacher-Student Prompt Optimization for C++ Walkthroughs
         </h2>
         <div class="text-sm muted-text">
-          <strong>Yossef Moftah</strong> &bull; <em>StarCoder2, Gemini 1.5 Flash, Gradio, Python, C++</em>
+          <em>StarCoder2, Gemini 1.5 Flash, Gradio, Python, C++</em>
         </div>
         <div class="text-sm mono space-x-2">
           <a href="https://github.com/Yossef-moftah-dev/Code-Explainer" target="_blank" rel="noopener noreferrer" class="h-link">[GitHub Repository]</a>
         </div>
         <p class="text-[15px]">
-          <strong>TL;DR:</strong> Built an interactive web interface in <strong>Gradio</strong> that translates complex C++ code (pointer manipulation, templates, move semantics, and memory management) into clear beginner walk-throughs using the open-source <strong>StarCoder2</strong> base model. Used <strong>Gemini 1.5 Flash as a teacher model</strong> to structure synthetic evaluation data and optimize the prompt pipeline for coherent, step-by-step explanations.
+          Built an interactive web interface in <strong>Gradio</strong> that translates complex C++ code (pointer manipulation, templates, move semantics, and memory management) into clear beginner walk-throughs using the open-source <strong>StarCoder2</strong> base model. Used <strong>Gemini 1.5 Flash as a teacher model</strong> to structure synthetic evaluation data and optimize the prompt pipeline for coherent, step-by-step explanations.
         </p>
       </article>
 
@@ -271,13 +266,13 @@
           High-Performance C++ Negamax Chess Engine
         </h2>
         <div class="text-sm muted-text">
-          <strong>Yossef Moftah</strong> &bull; <em>C++, Search Algorithms, Transposition Tables, Automated Benchmarking</em>
+          <em>C++, Search Algorithms, Transposition Tables, Automated Benchmarking</em>
         </div>
         <div class="text-sm mono space-x-2">
           <a href="https://www.chess.com/member/complex_00" target="_blank" rel="noopener noreferrer" class="h-link">[Chess.com Profile: complex_00]</a>
         </div>
         <p class="text-[15px]">
-          <strong>TL;DR:</strong> Engineered a chess engine from scratch in C++ implementing negamax search, iterative deepening, transposition tables, and move ordering while optimizing critical paths for faster node evaluation. <strong>Highlight result:</strong> Reached <strong>1500+ Elo</strong> against benchmark bots using automated match runs for evaluation.
+          Engineered a chess engine from scratch in C++ implementing negamax search, iterative deepening, transposition tables, and move ordering while optimizing critical paths for faster node evaluation. <strong>Highlight result:</strong> Reached <strong>1500+ Elo</strong> against benchmark bots using automated match runs for evaluation.
         </p>
       </article>
 
@@ -287,14 +282,14 @@
           Legacy C++ Debugging &amp; Issue Resolution in GeneralsGameCode
         </h2>
         <div class="text-sm muted-text">
-          <strong>Yossef Moftah</strong> &bull; <em>C++, Legacy Codebases, Open-Source Maintenance</em>
+          <em>C++, Legacy Codebases, Open-Source Maintenance</em>
         </div>
         <div class="text-sm mono space-x-2">
           <a href="https://github.com/TheSuperHackers/GeneralsGameCode/issues?q=involves%3A%40Yossef-moftah-dev" target="_blank" rel="noopener noreferrer" class="h-link">[Involved Issues (7 Analyzed, 4 Fixed)]</a>
           <a href="https://github.com/TheSuperHackers/GeneralsGameCode" target="_blank" rel="noopener noreferrer" class="h-link">[GeneralsGameCode Repository]</a>
         </div>
         <p class="text-[15px]">
-          <strong>TL;DR:</strong> Contributed to the community maintenance of EA's <em>Command &amp; Conquer: Generals – Zero Hour</em> C++ engine by identifying, reproducing, analyzing, and reporting bugs to upstream developers. Worked on <strong>7 issues with 4 successfully fixed</strong>.
+          Contributed to the community maintenance of EA's <em>Command &amp; Conquer: Generals – Zero Hour</em> C++ engine by identifying, reproducing, analyzing, and reporting bugs to upstream developers. Worked on <strong>7 issues with 4 successfully fixed</strong>.
         </p>
       </article>
 
@@ -304,28 +299,28 @@
           Pre-Encoding Lecture Text Automation
         </h2>
         <div class="text-sm muted-text">
-          <strong>Yossef Moftah</strong> &bull; <em>Python, Google Gemini API, Prompt Pipelines</em>
+          <em>Python, Google Gemini API, Prompt Pipelines</em>
         </div>
         <div class="text-sm mono space-x-2">
           <a href="https://github.com/Yossef-moftah-dev/Pre-Encoding-Automation" target="_blank" rel="noopener noreferrer" class="h-link">[GitHub Repository]</a>
         </div>
         <p class="text-[15px]">
-          <strong>TL;DR:</strong> Automated the cleaning, structuring, and rephrasing of raw university lecture text using the <strong>Google Gemini API</strong>, reducing manual study preparation time by approximately <strong>15–25%</strong>.
+          Automated the cleaning, structuring, and rephrasing of raw university lecture text using the <strong>Google Gemini API</strong>, reducing manual study preparation time by approximately <strong>15–25%</strong>.
         </p>
       </article>
     </section>
 
   </main>
 
-  <!-- In-Page CV / Resume Summary Modal -->
-  <div id="cv-modal" class="fixed inset-0 z-50 hidden bg-black/50 flex items-center justify-center p-3 sm:p-4">
-    <div class="subtle-box rounded-xl max-w-2xl w-full p-4 sm:p-6 space-y-4 max-h-[85vh] overflow-y-auto shadow-2xl" style="background-color: var(--bg-color);">
-      <div class="flex items-center justify-between border-b divider pb-3 gap-2">
+  <!-- In-Page CV / Resume Summary Modal (Clean horace.io style) -->
+  <div id="cv-modal" class="fixed inset-0 z-50 hidden bg-black/50 flex items-center justify-center p-4">
+    <div class="subtle-box rounded-xl max-w-2xl w-full p-6 space-y-4 max-h-[85vh] overflow-y-auto shadow-2xl" style="background-color: var(--bg-color);">
+      <div class="flex items-center justify-between border-b divider pb-3">
         <div>
-          <h3 class="text-base sm:text-lg font-bold">Yossef Moftah Mohamed — CV &amp; Contact</h3>
+          <h3 class="text-lg font-bold">Yossef Moftah Mohamed — CV &amp; Contact</h3>
           <p class="text-xs mono muted-text">yossefmoftah000@gmail.com &bull; Egypt</p>
         </div>
-        <button type="button" id="close-cv-modal-btn" class="text-xs mono h-link shrink-0 p-1 cursor-pointer">[Close &times;]</button>
+        <button type="button" id="close-cv-modal-btn" class="text-xs mono h-link">[Close &times;]</button>
       </div>
 
       <div class="space-y-3 text-sm">
@@ -335,7 +330,7 @@
         <div class="subtle-box rounded p-3 space-y-2">
           <div class="flex items-center justify-between">
             <span class="text-xs mono font-semibold">NEW CV ENTRY FOR ARABIC-SENTIMENT-ARABERT:</span>
-            <button type="button" id="copy-cv-entry-btn" class="text-xs mono h-link cursor-pointer">[Copy Bullet]</button>
+            <button type="button" id="copy-cv-entry-btn" class="text-xs mono h-link">[Copy Bullet]</button>
           </div>
           <pre id="cv-snippet-text" class="text-xs mono whitespace-pre-wrap leading-relaxed">Arabic Sentiment Analysis with AraBERT (https://github.com/Yossef-moftah-dev/arabic-sentiment-arabert)
 • Built an Arabic sentiment classification pipeline in Python using PyTorch and Hugging Face Transformers (AraBERT), applying Arabic morphological preprocessing and subword tokenization.</pre>
@@ -343,7 +338,7 @@
       </div>
 
       <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t divider text-xs mono">
-        <button type="button" id="copy-email-btn" class="h-link py-1 cursor-pointer">[Copy Email: yossefmoftah000@gmail.com]</button>
+        <button type="button" id="copy-email-btn" class="h-link">[Copy Email: yossefmoftah000@gmail.com]</button>
       </div>
     </div>
   </div>
