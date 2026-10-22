@@ -80,20 +80,18 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Top Header Navigation (Exact horace.io proportions and layout) -->
+  <!-- Top Header Navigation -->
   <header class="border-b divider">
-    <div class="max-w-[740px] mx-auto px-5 py-4 flex flex-wrap items-center justify-between gap-4">
-      <button type="button" id="brand-home-btn" class="text-lg font-semibold tracking-tight hover:opacity-80 text-left">
-        Yossef Moftah
-      </button>
-
-      <nav class="flex flex-wrap items-center gap-5 sm:gap-6">
+    <div class="max-w-[740px] mx-auto px-5 py-4 relative flex items-center justify-center">
+      <nav class="flex items-center gap-6">
         <button type="button" data-page="home" class="nav-link active">Home</button>
         <button type="button" data-page="projects" class="nav-link">Projects</button>
+      </nav>
+      <div class="absolute right-5">
         <button type="button" id="theme-btn" aria-label="Toggle reading theme" title="Toggle Light / Dark Reading Mode" class="text-xs mono px-2 py-1 rounded subtle-box hover:opacity-80">
           [Dark]
         </button>
-      </nav>
+      </div>
     </div>
   </header>
 
@@ -158,7 +156,7 @@
             My work on applied NLP and LLM pipelines, including <a href="https://github.com/Yossef-moftah-dev/arabic-sentiment-arabert" target="_blank" rel="noopener noreferrer" class="h-link">arabic-sentiment-arabert</a> (Arabic sentiment classification built with AraBERT, PyTorch, and Hugging Face), <a href="https://github.com/Yossef-moftah-dev/Code-Explainer" target="_blank" rel="noopener noreferrer" class="h-link">Code-Explainer</a> (converting complex C++ into beginner walk-throughs with StarCoder2 and Gemini 1.5 Flash), and <a href="https://github.com/Yossef-moftah-dev/Pre-Encoding-Automation" target="_blank" rel="noopener noreferrer" class="h-link">Pre-Encoding-Automation</a> (cutting manual lecture prep time by 15–25%).
           </li>
           <li>
-            I ranked <strong>1st at my university</strong> in the <strong>2024 Egyptian Collegiate Programming Contest (ECPC)</strong> season, and built a <button type="button" data-goto="projects" class="inline-nav-btn h-link">1500+ Elo C++ Chess Engine</button> implementing negamax, iterative deepening, transposition tables, and move ordering.
+            I ranked <strong>1st at my university</strong> in the <strong>2024 Egyptian Collegiate Programming Contest (ECPC)</strong> season.
           </li>
         </ul>
       </div>
@@ -174,6 +172,7 @@
 
       <!-- Entry 1: Arabic Sentiment AraBERT -->
       <article class="space-y-2.5">
+        <img src="img/arabert.png" alt="Arabic Sentiment Analysis with AraBERT banner" class="w-full sm:w-[210px] sm:float-left sm:mr-5 mb-3 rounded border divider object-cover bg-white" />
         <h2 class="text-lg font-bold leading-snug">
           Arabic Sentiment Analysis with AraBERT
         </h2>
@@ -203,10 +202,12 @@
             <div id="ar-verdict-out" class="font-semibold text-emerald-600">Prediction: POSITIVE (94%)</div>
           </div>
         </div>
+        <div class="clear-both"></div>
       </article>
 
       <!-- Entry 2: SageMath Optimization -->
-      <article class="space-y-2.5 pt-6 border-t divider">
+      <article class="space-y-2.5 pt-6 border-t divider clear-both">
+        <img src="img/sagemath.jpg" alt="SageMath Hot-Path Benchmark plot" class="w-full sm:w-[210px] sm:float-left sm:mr-5 mb-3 rounded border divider object-cover bg-white" />
         <h2 class="text-lg font-bold leading-snug">
           Hot-Path Runtime Optimization in SageMath
         </h2>
@@ -220,10 +221,12 @@
         <p class="text-[15px]">
           Profiled a heavily called hot-path function in the SageMath mathematics software system, isolated redundant overhead along the critical execution path, and restructured the implementation. <strong>Highlight result:</strong> Reduced execution runtime by <strong>up to 30%</strong> in benchmark scenarios; reviewed and merged upstream in PR #41778.
         </p>
+        <div class="clear-both"></div>
       </article>
 
       <!-- Entry 3: Code Explainer -->
-      <article class="space-y-2.5 pt-6 border-t divider">
+      <article class="space-y-2.5 pt-6 border-t divider clear-both">
+        <img src="img/explainer.jpg" alt="Code Explainer Pipeline diagram" class="w-full sm:w-[210px] sm:float-left sm:mr-5 mb-3 rounded border divider object-cover bg-white" />
         <h2 class="text-lg font-bold leading-snug">
           Code Explainer: Teacher-Student Prompt Optimization for C++ Walkthroughs
         </h2>
@@ -236,26 +239,12 @@
         <p class="text-[15px]">
           Built an interactive web interface in <strong>Gradio</strong> that translates complex C++ code (pointer manipulation, templates, move semantics, and memory management) into clear beginner walk-throughs using the open-source <strong>StarCoder2</strong> base model. Used <strong>Gemini 1.5 Flash as a teacher model</strong> to structure synthetic evaluation data and optimize the prompt pipeline for coherent, step-by-step explanations.
         </p>
+        <div class="clear-both"></div>
       </article>
 
-      <!-- Entry 4: C++ Chess Engine -->
-      <article class="space-y-2.5 pt-6 border-t divider">
-        <h2 class="text-lg font-bold leading-snug">
-          High-Performance C++ Negamax Chess Engine
-        </h2>
-        <div class="text-sm muted-text">
-          <em>C++, Search Algorithms, Transposition Tables, Automated Benchmarking</em>
-        </div>
-        <div class="text-sm mono space-x-2">
-          <a href="https://www.chess.com/member/complex_00" target="_blank" rel="noopener noreferrer" class="h-link">[Chess.com Profile: complex_00]</a>
-        </div>
-        <p class="text-[15px]">
-          Engineered a chess engine from scratch in C++ implementing negamax search, iterative deepening, transposition tables, and move ordering while optimizing critical paths for faster node evaluation. <strong>Highlight result:</strong> Reached <strong>1500+ Elo</strong> against benchmark bots using automated match runs for evaluation.
-        </p>
-      </article>
-
-      <!-- Entry 5: GeneralsGameCode -->
-      <article class="space-y-2.5 pt-6 border-t divider">
+      <!-- Entry 4: GeneralsGameCode -->
+      <article class="space-y-2.5 pt-6 border-t divider clear-both">
+        <img src="img/generals.jpg" alt="Legacy C++ Game Engine Architecture diagram" class="w-full sm:w-[210px] sm:float-left sm:mr-5 mb-3 rounded border divider object-cover bg-white" />
         <h2 class="text-lg font-bold leading-snug">
           Legacy C++ Debugging &amp; Issue Resolution in GeneralsGameCode
         </h2>
@@ -269,10 +258,12 @@
         <p class="text-[15px]">
           Contributed to the community maintenance of EA's <em>Command &amp; Conquer: Generals – Zero Hour</em> C++ engine by identifying, reproducing, analyzing, and reporting bugs to upstream developers. Worked on <strong>7 issues with 4 successfully fixed</strong>.
         </p>
+        <div class="clear-both"></div>
       </article>
 
-      <!-- Entry 6: Pre-Encoding Automation -->
-      <article class="space-y-2.5 pt-6 border-t divider">
+      <!-- Entry 5: Pre-Encoding Automation -->
+      <article class="space-y-2.5 pt-6 border-t divider clear-both">
+        <img src="img/automation.jpg" alt="Lecture Text Automation Pipeline diagram" class="w-full sm:w-[210px] sm:float-left sm:mr-5 mb-3 rounded border divider object-cover bg-white" />
         <h2 class="text-lg font-bold leading-snug">
           Pre-Encoding Lecture Text Automation
         </h2>
@@ -285,6 +276,7 @@
         <p class="text-[15px]">
           Automated the cleaning, structuring, and rephrasing of raw university lecture text using the <strong>Google Gemini API</strong>, reducing manual study preparation time by approximately <strong>15–25%</strong>.
         </p>
+        <div class="clear-both"></div>
       </article>
     </section>
 
